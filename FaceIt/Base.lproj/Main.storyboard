@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Face View Controller-->
+        <!--Blinking Face View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FaceViewController" customModule="FaceIt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BlinkingFaceViewController" customModule="FaceIt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -37,7 +37,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="i5e-zF-ZeX" appends="YES" id="rzS-PD-5PN"/>
+                                    <outletCollection property="gestureRecognizers" destination="i5e-zF-ZeX" appends="YES" id="h0o-z1-PWK"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -57,7 +57,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="i5e-zF-ZeX">
                     <connections>
-                        <action selector="toggleEyes:" destination="BYZ-38-t0r" id="coe-v4-eqZ"/>
+                        <action selector="headShake:" destination="BYZ-38-t0r" id="9kO-Qx-7jb"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

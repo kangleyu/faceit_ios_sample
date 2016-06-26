@@ -13,8 +13,8 @@ class FaceViewController: UIViewController {
     @IBOutlet weak var faceView: FaceView! {
         didSet {
             // add recognizer gestures
-            faceView.addGestureRecognizer(UIPinchGestureRecognizer(target: faceView, action:#selector(FaceView.changeScale(_:))));
-            //faceView.addGestureRecognizer(UIPinchGestureRecognizer(target: faceView, action: "changeScale:"));
+            faceView.addGestureRecognizer(UIPinchGestureRecognizer(target: faceView, action:#selector(FaceView.changeScale(_:))))
+            //faceView.addGestureRecognizer(UIPinchGestureRecognizer(target: faceView, action: "changeScale:"))
             
             let happierSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(FaceViewController.increaseHappiness));
             happierSwipeGestureRecognizer.direction = .Up;
@@ -40,6 +40,45 @@ class FaceViewController: UIViewController {
             }
         }
     }
+    
+    private struct Animation {
+        static let ShakeAngle = CGFloat(M_PI/6)
+        static let ShakeDuration = 0.5
+    }
+    
+    @IBAction func headShake(sender: UITapGestureRecognizer) {
+        UIView.animateWithDuration(
+            Animation.ShakeDuration,
+            animations: {
+                self.faceView.transform = CGAffineTransformRotate(self.faceView.transform, Animation.ShakeAngle)
+            },
+            completion: { finished in
+                if finished {
+                    UIView.animateWithDuration(
+                        Animation.ShakeDuration,
+                        animations: {
+                            self.faceView.transform = CGAffineTransformRotate(self.faceView.transform, -Animation.ShakeAngle*2)
+                        },
+                        completion: { finished in
+                            if finished {
+                                UIView.animateWithDuration(
+                                    Animation.ShakeDuration,
+                                    animations: {
+                                        self.faceView.transform = CGAffineTransformRotate(self.faceView.transform, Animation.ShakeAngle)
+                                    },
+                                    completion: { finished in
+                                        // completed
+                                    }
+                                )
+                            }
+                            
+                        }
+                    )
+                }
+            }
+        )
+    }
+    
     
     func increaseHappiness(){
         expression.mouth = expression.mouth.happierMouth();
