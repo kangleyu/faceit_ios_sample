@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "FaceViewController.(updateUI in _42637A1748E3748A3699F7659E85AA54)() -&gt; ():FaceViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "faceView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EmotionsViewController.prepareForSegue(UIStoryboardSegue, sender : AnyObject?) -&gt; ():EmotionsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "segue.identifier">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
